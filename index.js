@@ -16,19 +16,19 @@ async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const getAllContacts = await contacts.readAllContacts();
-      return console.table(getAllContacts);
+      console.table(getAllContacts);
 
       break;
 
     case 'get':
       const getContactById = await contacts.getContactById(id);
-      return console.log(getContactById);
+      console.log(getContactById);
 
       break;
 
     case 'add':
       const addContact = await contacts.addContact({ name, email, phone });
-      return console.log(addContact);
+      console.log(addContact);
 
       break;
 
@@ -44,5 +44,4 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(options)
-.then(console.log)
 .catch(console.error);
